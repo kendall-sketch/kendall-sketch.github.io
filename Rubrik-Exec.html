@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sentinel Vault | Zero-Malware Threat Intelligence</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "tertiary-fixed-dim": "#afc8f0",
+                        "surface-container-low": "#001c3a",
+                        "on-error-container": "#ffdad6",
+                        "primary-container": "#0ac9bb",
+                        "surface-bright": "#203a5b",
+                        "primary-fixed": "#60f9ea",
+                        "on-tertiary-container": "#2e4768",
+                        "on-secondary-container": "#a8b0f8",
+                        "surface-container": "#012040",
+                        "surface-container-highest": "#1b3656",
+                        "on-surface": "#d4e3ff",
+                        "on-tertiary-fixed-variant": "#2f486a",
+                        "on-primary-container": "#004f49",
+                        "on-secondary": "#222a69",
+                        "background": "#00142b",
+                        "outline-variant": "#3b4a47",
+                        "secondary-container": "#394181",
+                        "error": "#ffb4ab",
+                        "inverse-surface": "#d4e3ff",
+                        "surface-variant": "#1b3656",
+                        "tertiary": "#b7d1f9",
+                        "on-primary": "#003733",
+                        "primary-fixed-dim": "#39dcce",
+                        "on-primary-fixed-variant": "#00504a",
+                        "surface-tint": "#39dcce",
+                        "secondary-fixed": "#dfe0ff",
+                        "secondary": "#bdc2ff",
+                        "on-secondary-fixed": "#0a1254",
+                        "surface": "#00142b",
+                        "primary": "#47e5d7",
+                        "on-tertiary-fixed": "#001c3a",
+                        "on-tertiary": "#163152",
+                        "surface-container-lowest": "#000e23",
+                        "on-error": "#690005",
+                        "tertiary-container": "#9cb5dd",
+                        "secondary-fixed-dim": "#bdc2ff",
+                        "inverse-on-surface": "#163152",
+                        "tertiary-fixed": "#d4e3ff",
+                        "on-primary-fixed": "#00201d",
+                        "on-secondary-fixed-variant": "#394181",
+                        "on-background": "#d4e3ff",
+                        "outline": "#859491",
+                        "surface-container-high": "#0e2b4b",
+                        "on-surface-variant": "#bacac6",
+                        "surface-dim": "#00142b",
+                        "inverse-primary": "#006a62",
+                        "error-container": "#93000a"
+                    },
+                    fontFamily: {
+                        "headline": ["Inter", "sans-serif"],
+                        "body": ["Inter", "sans-serif"],
+                        "label": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(27, 54, 86, 0.4);
+            backdrop-filter: blur(12px);
+        }
+        .text-glow {
+            text-shadow: 0 0 15px rgba(71, 229, 215, 0.3);
+        }
+        .hero-mask {
+            mask-image: linear-gradient(to right, transparent 0%, black 50%), linear-gradient(to top, transparent 0%, black 30%);
+            -webkit-mask-image: linear-gradient(to right, transparent 0%, black 50%), linear-gradient(to top, transparent 0%, black 30%);
+            mask-composite: intersect;
+            -webkit-mask-composite: source-in;
+        }
+        .mechanism-mask {
+            mask-image: radial-gradient(ellipse at center, black 20%, transparent 80%);
+            -webkit-mask-image: radial-gradient(ellipse at center, black 20%, transparent 80%);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary/30 selection:text-primary">
+<header class="bg-transparent transition-colors duration-500 docked full-width top-0 sticky z-50 shadow-none border-b border-primary/5">
+<nav class="flex justify-between items-center w-full px-12 h-24 max-w-none">
+<div class="text-xl font-bold tracking-tighter text-[#d4e3ff]">Sentinel Vault</div>
+<div class="hidden md:flex gap-12 items-center">
+<a class="font-bold tracking-tight text-sm uppercase text-[#47e5d7] border-b-2 border-[#47e5d7] pb-1" href="#">Threat Intelligence</a>
+<a class="font-bold tracking-tight text-sm uppercase text-[#bacac6] hover:text-[#d4e3ff] transition-colors" href="#">Executive Briefings</a>
+<a class="font-bold tracking-tight text-sm uppercase text-[#bacac6] hover:text-[#d4e3ff] transition-colors" href="#">Global Infrastructure</a>
+<a class="font-bold tracking-tight text-sm uppercase text-[#bacac6] hover:text-[#d4e3ff] transition-colors" href="#">Risk Analysis</a>
+</div>
+<div class="md:hidden">
+<span class="material-symbols-outlined text-primary cursor-pointer">menu</span>
+</div>
+</nav>
+</header>
+<main>
+<!-- Screen 1: Hero -->
+<section class="min-h-screen flex items-center px-12 bg-background relative overflow-hidden -mt-24">
+<!-- Hero Image Background -->
+<div class="absolute top-0 right-0 w-full h-full md:w-3/5 z-0">
+<img alt="Abstract digital data architecture" class="w-full h-full object-cover hero-mask object-center scale-75" src="https://lh3.googleusercontent.com/aida/ADBb0uihBAYBByKlBiSsL2Rqp0DPfncWE5ISWtrjgsXrS0oAHVbnjwP4iwfpNRIKRnmGhrQxwkYnmiv1AzJLh_eEcI73BYMxdmfXnHC_jDXL-XLtzv5m1UlyG5uZ57mZHifUXlBH8cQaohaw5uPcxkn1YCvQmAac-1VXPKxc8C6RqDXMlNdjgvLjMgkogvQcvaF181YUGSSlA9x54bReR-dqPvxSOn0Wnp_XJ8nbNhzh2mqMdBLG7uujzLVpXJ8ChHbok1l5M71QCzIuOCs"/>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center w-full max-w-none z-10 pt-24">
+<div>
+<p class="text-primary font-bold tracking-widest uppercase text-sm mb-6 flex items-center gap-2">
+<span class="w-2 h-2 bg-primary rounded-full"></span>
+                        Intelligence Alert: Zero-Malware Threat
+                    </p>
+<h1 class="text-5xl lg:text-6xl font-extrabold tracking-tighter text-on-surface leading-[1.1] mb-8">
+                        A Nation-State Attack That <br/>
+<span class="text-primary text-glow">Used No Malware</span>.
+                    </h1>
+<div class="space-y-4 max-w-[640px]">
+<p class="text-[17px] text-on-surface-variant leading-relaxed font-light">
+                            In March 2026, a Fortune 500 healthcare company had more than 200,000 devices wiped across 79 countries — not by malware, but by its own cloud-based endpoint management platform turned against it.
+                        </p>
+<p class="text-[17px] text-on-surface-variant leading-relaxed font-light">
+                            The attack was carried out by a group linked to Iran's Ministry of Intelligence and Security. It was the first confirmed major cyberattack on a U.S. corporation following joint U.S.-Israeli military strikes on Iran beginning February 28, 2026.
+                        </p>
+<p class="text-[17px] text-on-surface-variant leading-relaxed font-light">
+                            A report from the Center for Strategic and International Studies found that the strikes were more likely to mark the beginning of a new phase of cyber escalation than its conclusion.
+                        </p>
+</div>
+</div>
+<div class="hidden md:block"></div>
+</div>
+</section>
+<!-- Screen 2: Mechanism -->
+<section class="px-12 bg-surface pt-6 pb-20 overflow-hidden">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start relative">
+<div class="absolute inset-0 md:inset-y-0 md:left-0 md:w-1/2 overflow-hidden pointer-events-none z-0">
+<div class="relative h-full w-full">
+<img alt="Digital fingerprint scanning and identity verification" class="w-full h-full object-cover scale-125 origin-center mechanism-mask" src="https://lh3.googleusercontent.com/aida/ADBb0uiCMxQ3fqMYWL6XONxxBKgAuRMW70h3AEoP-4CVBMDf3-E2_MHQIJX7fvMZFmmTQcBvhihJ0-OhBjR4z4CSQOtL3yu5PIGV2c5ISrZTesNs2aj_JabrYIhDV4vIghyb4evlhv0k1gTLd1O4dWN_1bvXUs1bXoV5EP4B3eb-ZqiW5Oo8jWhxVHJxp0prNXNr9vyPIqHx17n9DTAORjHlwkGHyXJ-iKSXVeik8CTQcHJZmiMzPhLgUAoA7LC2sm33cgIKAWkTvO5CbA"/>
+</div>
+</div>
+<div class="hidden md:block h-full"></div>
+<div class="relative z-10 py-12">
+<h2 class="text-3xl font-bold tracking-tight text-on-surface mb-8">
+                        One Credential. One Console. <span class="text-primary">Enterprise-Wide Destruction.</span>
+</h2>
+<div class="space-y-6 mb-10">
+<p class="text-[18px] text-on-surface-variant leading-relaxed">
+                            Attackers compromised a privileged admin account and used the company's Microsoft Intune console to issue remote wipe commands to every connected device. This "living off the land" technique required no custom malware — only one credential set with sufficient privilege in the right management plane.
+                        </p>
+</div>
+<div class="p-8 border-l-4 border-primary bg-surface-container-low/80 backdrop-blur-sm shadow-xl">
+<p class="text-on-surface font-medium text-[18px]">
+                            Unit 42's 2026 report: 65% of initial access in recent incidents is identity-based. This was an identity governance and access control failure.
+                        </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Screen 3: Exposure -->
+<section class="py-20 px-12 bg-surface-container-low">
+<div class="max-w-4xl mb-12">
+<h2 class="text-4xl font-bold tracking-tighter text-on-surface mb-4">The Gaps This Attack Exploits</h2>
+<p class="text-[18px] text-on-surface-variant">The architectural blind spots currently exploited by state-sponsored actors to dismantle global enterprise perimeters.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-16">
+<!-- Card 1 -->
+<div class="bg-surface-container-high/40 p-8 rounded-lg border border-white/10 flex flex-col h-full">
+<span class="material-symbols-outlined text-primary text-3xl mb-6">token</span>
+<h3 class="text-lg font-bold text-on-surface mb-4 uppercase">Identity Segregation</h3>
+<p class="text-[16px] text-on-surface-variant leading-relaxed">
+                        MDM admin accounts must be separated from daily-use accounts. One phished inbox should not carry device-wipe authority.
+                    </p>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-high/40 p-8 rounded-lg border border-white/10 flex flex-col h-full">
+<span class="material-symbols-outlined text-primary text-3xl mb-6">layers</span>
+<h3 class="text-lg font-bold text-on-surface mb-4 uppercase">Tier 0 Classification</h3>
+<p class="text-[16px] text-on-surface-variant leading-relaxed">
+                        MDM consoles control entire endpoint estates. They require dedicated admin accounts, no persistent sessions, and break-glass procedures stored offline.
+                    </p>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-high/40 p-8 rounded-lg border border-white/10 flex flex-col h-full">
+<span class="material-symbols-outlined text-primary text-3xl mb-6">query_stats</span>
+<h3 class="text-lg font-bold text-on-surface mb-4 uppercase">Anomaly Detection</h3>
+<p class="text-[16px] text-on-surface-variant leading-relaxed">
+                        Bulk remote wipe commands at unusual hours should trigger automatic holds requiring secondary approval.
+                    </p>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface-container-high/40 p-8 rounded-lg border border-white/10 flex flex-col h-full">
+<span class="material-symbols-outlined text-primary text-3xl mb-6">devices</span>
+<h3 class="text-lg font-bold text-on-surface mb-4 uppercase">BYOD Enrollment</h3>
+<p class="text-[16px] text-on-surface-variant leading-relaxed">
+                        Containerized MAM-only profiles prevent corporate remote wipe commands from touching personal data on employee devices.
+                    </p>
+</div>
+</div>
+<!-- Executive Accountability Audit -->
+<div class="max-w-5xl mx-auto border-l-4 border-primary bg-surface-container-high/30 p-10 rounded-r-lg">
+<h3 class="text-xl font-bold text-on-surface mb-2">Executive Accountability Audit</h3>
+<p class="text-on-surface-variant mb-8">Five questions every executive should be able to answer about every vendor with admin access.</p>
+<div class="space-y-4">
+<div class="flex gap-4 items-baseline">
+<span class="text-primary font-bold">1.</span>
+<p class="text-on-surface leading-snug"><span class="font-bold">MFA Strength:</span> Are they using phishing-resistant hardware keys for Tier 0 platform access?</p>
+</div>
+<div class="flex gap-4 items-baseline">
+<span class="text-primary font-bold">2.</span>
+<p class="text-on-surface leading-snug"><span class="font-bold">Access Residency:</span> Is access granted just-in-time and revoked after each session?</p>
+</div>
+<div class="flex gap-4 items-baseline">
+<span class="text-primary font-bold">3.</span>
+<p class="text-on-surface leading-snug"><span class="font-bold">Anomalous Alerts:</span> Are there active alerts for admin actions outside business hours or at unusual scale?</p>
+</div>
+<div class="flex gap-4 items-baseline">
+<span class="text-primary font-bold">4.</span>
+<p class="text-on-surface leading-snug"><span class="font-bold">Contractual Controls:</span> What are the specific security requirements and breach liability terms?</p>
+</div>
+<div class="flex gap-4 items-baseline">
+<span class="text-primary font-bold">5.</span>
+<p class="text-on-surface leading-snug"><span class="font-bold">Verified Audit:</span> When did you last pull sign-in logs to verify active accounts yourself?</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Screen 4: CTA -->
+<section class="py-24 px-12 text-center bg-background relative">
+<div class="max-w-[720px] mx-auto relative z-10">
+<h2 class="text-4xl font-extrabold tracking-tighter text-on-surface mb-6">Assess Your Exposure to Identity-Based Destructive Attacks</h2>
+<p class="text-[18px] text-on-surface-variant mb-10">
+                    The gaps exploited in this attack exist across most enterprise environments. Identify Tier 0 vulnerabilities before they are weaponized.
+                </p>
+<button class="bg-primary text-on-primary font-black h-14 px-12 rounded-sm tracking-widest hover:shadow-[0_0_30px_rgba(71,229,215,0.4)] transition-all uppercase">
+                    EVALUATE YOUR SECURITY ARCHITECTURE
+                </button>
+<div class="mt-12 flex justify-center items-center gap-10 opacity-60">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl">bolt</span>
+<span class="text-[12px] font-bold tracking-widest uppercase">Customize Zero Trust</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl">verified_user</span>
+<span class="text-[12px] font-bold tracking-widest uppercase">Global Compliance-Ready</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl">lock</span>
+<span class="text-[12px] font-bold tracking-widest uppercase">24/7 Vault Protection</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="bg-[#00142b] full-width border-t border-[#3b4a47]/15">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-12 py-10 gap-6">
+<div class="text-lg font-black text-[#d4e3ff]">Sentinel Vault</div>
+<div class="flex gap-8">
+<a class="text-xs tracking-wide font-medium text-[#bacac6] hover:text-[#d4e3ff]" href="#">Privacy Protocol</a>
+<a class="text-xs tracking-wide font-medium text-[#bacac6] hover:text-[#d4e3ff]" href="#">Service Terms</a>
+<a class="text-xs tracking-wide font-medium text-[#bacac6] hover:text-[#d4e3ff]" href="#">Compliance Standards</a>
+<a class="text-xs tracking-wide font-medium text-[#bacac6] hover:text-[#d4e3ff]" href="#">Disclosure Policy</a>
+</div>
+<div class="text-xs tracking-wide font-medium text-[#bacac6] opacity-80">
+                © 2024 Sentinel Vault. All Rights Reserved. Data provided by Global Threat Intelligence Consortium (GTIC).
+            </div>
+</div>
+<div class="px-12 pb-8">
+<p class="text-[10px] text-outline uppercase tracking-[0.2em] font-medium max-w-4xl opacity-50">
+                Source Attribution: Incident details and threat intelligence sourced from publicly available reporting as of March 2026, including Unit 42's 2026 Global Incident Response Report, Palo Alto Networks threat intelligence, the Center for Strategic and International Studies, and SEC filings.
+            </p>
+</div>
+</footer>
+</body></html>
